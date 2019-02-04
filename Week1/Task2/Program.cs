@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
+    class student
+    {
+
+    }
     class Program
     {
         static void Main(string[] args)

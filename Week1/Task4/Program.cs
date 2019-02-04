@@ -12,7 +12,14 @@ namespace Task4
         {
             string x = Console.ReadLine();
             int ss = int.Parse(x);
-            int[] array = new int[ss];
+            for (int i = 1; i <= ss; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    Console.Write("[*]");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
