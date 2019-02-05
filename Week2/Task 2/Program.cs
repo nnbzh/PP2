@@ -26,13 +26,15 @@ namespace Task_2
         static void Main(string[] args)
         {;
             string s = System.IO.File.ReadAllText(@"C:\Users\Nurik\Desktop\pp2\Week2\test\TS2.txt");
-            Console.WriteLine(s);
             int[] arr = new int[s.Length/2 + 1];
             arr = s.Split(' ').Select(int.Parse).ToArray();
             for (int i = 0; i < arr.Length;i++)
             {
                 if (primeN(arr[i]) == true) {
-                    Console.WriteLine(arr[i]);
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Nurik\Desktop\pp2\Week2\test\TS2Out.txt", true))
+                    {
+                        file.Write(arr[i] + " ");
+                    }
                 }
             }
         }

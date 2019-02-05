@@ -30,8 +30,8 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            Student s1 = new Student("Berik", 1 , 1);
-            s1.PrintInfo();
+            Student s1 = new Student("Berik", 1, 1);
+            Student s2 = new Student("Nurik", 2, 1);
         }
     }
 }
