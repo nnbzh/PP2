@@ -8,18 +8,43 @@ namespace Task4
 {
     class Program
     {
+        public static string[,] PrintIf(int size,string[,] array)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for(int j = 0; j < size; j++)
+                {
+                    Console.Write(array[i, j]);
+                }
+                Console.WriteLine();
+
+            }
+            return array;
+        }
+        public static string[,] FillArray(int size, string[,] array)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    array[i, j] = "";
+                }
+            }
+            return array;
+        }
         static void Main(string[] args)
         {
             string x = Console.ReadLine();
             int ss = int.Parse(x);
-            for (int i = 1; i <= ss; i++)
+            string[,] arr = new string[ss, ss];
+            for (int i = 0; i < ss; i++)
             {
-                for (int j = 0; j < i; j++)
+                for (int j = 0; j < i+1; j++)
                 {
-                    Console.Write("[*]");
+                    arr[i, j] = "[*]";
                 }
-                Console.WriteLine();
             }
+            PrintIf(ss, arr);
         }
     }
 }
