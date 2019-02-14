@@ -42,7 +42,7 @@ namespace FarManager
 
                 if (Content[i].GetType() == typeof(FileInfo))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
                 else
                 {
@@ -73,10 +73,7 @@ namespace FarManager
             bool esc = false;
             while (!esc)
             {
-                if (curMode == FSIMode.DirectoryInfo)
-                {
-                    history.Peek().Draw();
-                }
+                history.Peek().Draw();
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
                 switch (consoleKeyInfo.Key)
                 {
@@ -145,9 +142,17 @@ namespace FarManager
                     case ConsoleKey.Delete:
                         int iter = history.Peek().SelectedIndex;
                         FileSystemInfo fsi1 = history.Peek().Content[iter];
-                        fsi1.Delete();
+                        Console.Clear();
+                        Console.WriteLine("Do you want to delete {0} ?\nPress [Y/N]", fsi1.Name);
+                        ConsoleKeyInfo res = Console.ReadKey();
+                        while (res.Key != ConsoleKey.Y && res.Key != ConsoleKey.N)
+                            res = Console.ReadKey();
+                        if (res.Key == ConsoleKey.Y)
+                        {
+                            fsi1.Delete();
+                        } else { break; }
+                        history.Pop();
                         break;
-
                     case ConsoleKey.Escape:
                         esc = true;
                         break;
