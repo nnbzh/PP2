@@ -77,7 +77,7 @@ namespace FarManager
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
                 switch (consoleKeyInfo.Key)
                 {
-                    case ConsoleKey.UpArrow:
+                    case ConsoleKey.UpArrow: //Up
                         if (history.Peek().SelectedIndex == 0)
                         {
                             history.Peek().SelectedIndex = history.Peek().Content.Length - 1;
@@ -88,7 +88,7 @@ namespace FarManager
                         }
                         break;
 
-                    case ConsoleKey.DownArrow:
+                    case ConsoleKey.DownArrow: //Down
                         if (history.Peek().SelectedIndex == history.Peek().Content.Length - 1)
                         {
                             history.Peek().SelectedIndex = 0;
@@ -99,7 +99,7 @@ namespace FarManager
                         }
                         break;
 
-                    case ConsoleKey.Enter:
+                    case ConsoleKey.Enter: //Inside
                         int index = history.Peek().SelectedIndex;
                         FileSystemInfo fsi = history.Peek().Content[index];
                         if (fsi.GetType() == typeof(DirectoryInfo))
@@ -128,7 +128,7 @@ namespace FarManager
                         }
                         break;
 
-                    case ConsoleKey.Backspace:
+                    case ConsoleKey.Backspace: //Back
                         if (curMode == FSIMode.DirectoryInfo)
                         {
                             history.Pop();
@@ -139,7 +139,8 @@ namespace FarManager
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
-                    case ConsoleKey.Delete:
+
+                    case ConsoleKey.Delete: //Remove
                         int iter = history.Peek().SelectedIndex;
                         FileSystemInfo fsi1 = history.Peek().Content[iter];
                         Console.Clear();
@@ -153,7 +154,19 @@ namespace FarManager
                         } else { break; }
                         history.Pop();
                         break;
-                    case ConsoleKey.Escape:
+                    case ConsoleKey.Insert:
+                        int iter1 = history.Peek().SelectedIndex;
+                        FileSystemInfo fsi2 = history.Peek().Content[iter1];
+                        Console.WriteLine("Enter new name:");
+                        string name = Console.ReadLine();
+                        string prev = fsi2.FullName;
+
+                        string newName = Path.Combine(Path.GetDirectoryName(prev), name);
+                        Directory.Move(prev, newName);
+                        history.Pop();
+                        break;
+
+                    case ConsoleKey.Escape: //Exit
                         esc = true;
                         break;
                 }
