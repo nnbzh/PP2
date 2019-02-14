@@ -142,6 +142,11 @@ namespace FarManager
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         break;
+                    case ConsoleKey.Delete:
+                        int iter = history.Peek().SelectedIndex;
+                        FileSystemInfo fsi1 = history.Peek().Content[iter];
+                        fsi1.Delete();
+                        break;
 
                     case ConsoleKey.Escape:
                         esc = true;
