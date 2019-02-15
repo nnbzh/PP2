@@ -33,7 +33,7 @@ namespace FarManager
             {
                 if (i == SelectedIndex)
                 {
-                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.BackgroundColor = ConsoleColor.Red;
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace FarManager
 
                 if (Content[i].GetType() == typeof(FileInfo))
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                 }
                 else
                 {
