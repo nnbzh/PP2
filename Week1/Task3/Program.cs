@@ -24,11 +24,11 @@ namespace Task3
 
         static void Main(string[] args)
         {
-            string x = Console.ReadLine();
-            int ss = int.Parse(x);
-            int[] array = new int[ss];
-            string str = Console.ReadLine();
-            array = str.Split(' ').Select(int.Parse).ToArray();
+            string x = Console.ReadLine(); //wait for the input
+            int ss = int.Parse(x); //convert string to int
+            int[] array = new int[ss]; //create an array
+            string str = Console.ReadLine(); //wait for the input
+            array = str.Split(' ').Select(int.Parse).ToArray(); //split string into array items
 
             int[] doubled = doubleArray(ss, array); //use the method
             for (int i = 1; i <= ss * 2; i++) //output a doubled array

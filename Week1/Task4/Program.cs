@@ -21,17 +21,7 @@ namespace Task4
             }
             return array;
         }
-        public static string[,] FillArray(int size, string[,] array)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    array[i, j] = "";
-                }
-            }
-            return array;
-        }
+
         static void Main(string[] args)
         {
             string x = Console.ReadLine();

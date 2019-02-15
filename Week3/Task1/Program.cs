@@ -154,7 +154,8 @@ namespace FarManager
                         } else { break; }
                         history.Pop();
                         break;
-                    case ConsoleKey.Insert:
+
+                    case ConsoleKey.Insert: //Rename
                         int iter1 = history.Peek().SelectedIndex;
                         FileSystemInfo fsi2 = history.Peek().Content[iter1];
                         Console.WriteLine("Enter new name:");
